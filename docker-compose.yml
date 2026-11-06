@@ -1,0 +1,13 @@
+services:
+  hospital-triage:
+    build: .
+    container_name: hospital-triage
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      # 改知识库 JSON 不用重新构建镜像，热加载即可
+      - ./backend/app/data:/app/app/data:ro
+      - ./backend/runtime:/app/runtime

@@ -1,0 +1,5 @@
+# 可选增强：图片 OCR（拍病历/药单/检查单识别）
+# 安装：pip install -r requirements-ocr.txt
+# 不装也能跑，图片会走「未启用 OCR」的友好提示。
+rapidocr-onnxruntime==1.4.4
+pillow==11.1.0

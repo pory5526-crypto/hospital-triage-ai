@@ -1,0 +1,188 @@
+/* 小程序全局样式：基础样式由 build-wxss.js 从网页版生成，这里只放小程序特有的调整 */
+@import "base.wxss";
+
+page {
+  background: #f4f7f7;
+  font-family: "PingFang SC", "HarmonyOS Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: 28rpx;
+  line-height: 1.5;
+  color: #0e2a31;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 页面容器：左右留白 + 给自定义导航栏和底部输入区留位置 */
+.page-body {
+  padding: 0 32rpx 320rpx;
+}
+
+/* ---------- 自定义导航栏 ---------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  background: rgba(244, 247, 247, 0.94);
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  height: 88rpx;
+  padding: 0 32rpx;
+}
+
+.navbar .back {
+  width: 56rpx;
+  height: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -8rpx;
+  margin-right: 8rpx;
+}
+
+.navbar h1 {
+  font-size: 33rpx;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.navbar .st {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  margin-left: 14rpx;
+  font-size: 22rpx;
+  color: #05787f;
+  background: #e5f7f6;
+  padding: 4rpx 16rpx 4rpx 12rpx;
+  border-radius: 198rpx;
+  font-weight: 500;
+}
+
+.navbar .st .dot {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background: #12c08a;
+  box-shadow: 0 0 0 6rpx rgba(18, 192, 138, 0.16);
+}
+
+.nav-title {
+  font-size: 33rpx;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.chevron {
+  width: 18rpx;
+  height: 18rpx;
+  border-left: 4rpx solid #0e2a31;
+  border-bottom: 4rpx solid #0e2a31;
+  transform: rotate(45deg);
+  margin-left: 8rpx;
+}
+
+/* 底部 Home 指示条（两个页面共用） */
+.homebar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homebar-bar {
+  width: 252rpx;
+  height: 9rpx;
+  border-radius: 198rpx;
+  background: #0e2a31;
+  opacity: 0.85;
+}
+
+/* ---------- 进度条动画（小程序里用 transform 代替 width 过渡） ---------- */
+.meter i {
+  transform-origin: left center;
+  animation: meterGrow 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes meterGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ---------- 输入区（固定底部 + 键盘顶起） ---------- */
+.dock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  padding-bottom: env(safe-area-inset-bottom);
+  transition: bottom 0.18s ease-out;
+}
+
+/* ---------- 弹层用 fixed ---------- */
+.mask {
+  position: fixed;
+  z-index: 60;
+}
+
+/* 弹层必须盖在底部输入栏（z-index 50）之上 */
+.sheet {
+  position: fixed;
+  z-index: 61;
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 32rpx 0;
+}
+
+/* 中间内容区用 scroll-view 自己滚，避免超出屏幕被裁 */
+.sheet-body {
+  flex: 1 1 auto;
+  max-height: 58vh;
+  overflow: hidden;
+}
+
+.sheet-head {
+  flex: 0 0 auto;
+}
+
+.sheet-foot {
+  flex: 0 0 auto;
+  padding: 24rpx 0 calc(26rpx + env(safe-area-inset-bottom));
+}
+
+/* ---------- 小程序里的点击态 ---------- */
+.tap {
+  opacity: 0.72;
+}
+
+/* ---------- toast ---------- */
+.toast {
+  position: fixed;
+  bottom: 340rpx;
+  z-index: 90;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.5;
+  border-radius: 24rpx;
+  padding: 18rpx 28rpx;
+  max-width: 76%;
+  width: auto;
+}
+
+/* ---------- 气泡里的文字节点 ---------- */
+.bubble text {
+  word-break: break-word;
+}
+
+/* ---------- 列表结尾留白 ---------- */
+.list-end {
+  height: 24rpx;
+}

@@ -1,0 +1,9 @@
+{
+  "desc": "页面收录规则",
+  "rules": [
+    {
+      "action": "allow",
+      "page": "*"
+    }
+  ]
+}

@@ -1,0 +1,300 @@
+<!-- 自定义导航栏 -->
+<view class="navbar" style="padding-top: {{statusBarHeight}}px;">
+  <view class="navbar-inner">
+    <view class="back" bindtap="onBack" hover-class="tap">
+      <view class="chevron"></view>
+    </view>
+    <view class="nav-title">智能导诊</view>
+    <view class="st"><view class="dot"></view><text>在线</text></view>
+  </view>
+</view>
+
+<view class="page-body" style="padding-top: {{navTotal}}px;">
+  <!-- ================= 欢迎卡 ================= -->
+  <view class="welcome">
+    <view class="w-glow"></view>
+    <view class="w-top">
+      <view class="avatar"><text class="avatar-txt">医</text></view>
+      <view class="w-info">
+        <view class="w-name">
+          <text class="h2">小医助</text>
+          <text class="tag">AI 导诊</text>
+        </view>
+        <view class="w-desc">{{hospital}} · {{subtitle}}</view>
+      </view>
+    </view>
+
+    <image class="ecg" src="/assets/ecg.png" mode="aspectFit" />
+
+    <view class="entries">
+      <view
+        class="entry"
+        wx:for="{{entries}}"
+        wx:key="*this"
+        data-name="{{item}}"
+        bindtap="onEntry"
+        hover-class="tap"
+      >
+        <view class="entry-icon icon-{{index}}"></view>
+        <text class="entry-label">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="day">{{dayLabel}}</view>
+
+  <!-- ================= 消息 ================= -->
+  <block wx:for="{{messages}}" wx:key="id" wx:for-item="msg">
+    <!-- 用户消息 -->
+    <view class="row me" wx:if="{{msg.role === 'user'}}">
+      <view class="user-col">
+        <view class="file-bubble" wx:if="{{msg.fileName}}">
+          <view class="ficon">{{msg.fileExt}}</view>
+          <view class="fmeta">
+            <view class="fname">{{msg.fileName}}</view>
+            <view class="fstat">已上传 · 正在识别内容</view>
+          </view>
+        </view>
+        <view class="bubble" wx:if="{{msg.text}}"><text class="txt">{{msg.text}}</text></view>
+      </view>
+    </view>
+
+    <!-- AI 消息 -->
+    <block wx:if="{{msg.role === 'assistant'}}">
+      <view class="row" wx:if="{{msg.text || msg.chips.length}}">
+        <view class="mini-av"><text>医</text></view>
+        <view class="bubble">
+          <text class="txt">{{msg.text}}</text>
+          <text class="caret" wx:if="{{msg.streaming}}"></text>
+          <view class="chips" wx:if="{{msg.chips.length}}">
+            <view
+              class="chip"
+              wx:for="{{msg.chips}}"
+              wx:for-item="chip"
+              wx:key="*this"
+              data-chip="{{chip}}"
+              bindtap="onChip"
+              hover-class="tap"
+            >{{chip}}</view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 智能分析卡 -->
+      <view class="analysis" wx:if="{{msg.card && msg.card.type === 'triage'}}">
+        <view class="an-head">
+          <view class="spark"></view>
+          <text class="an-title">智能分析结果</text>
+          <text class="ok">已完成</text>
+        </view>
+
+        <view class="an-list">
+          <view class="an-item">
+            <view class="nm">
+              {{msg.card.primary.dept}}
+              <text class="sub">建议优先就诊</text>
+            </view>
+            <view class="meter">
+              <view class="bar" style="width: {{msg.card.primary.match}}%"></view>
+            </view>
+            <view class="pct">{{msg.card.primary.match}}%</view>
+          </view>
+
+          <view
+            class="an-item second"
+            wx:for="{{msg.card.alternatives}}"
+            wx:for-item="alt"
+            wx:key="dept"
+          >
+            <view class="nm">
+              {{alt.dept}}
+              <text class="sub">备选排查</text>
+            </view>
+            <view class="meter">
+              <view class="bar" style="width: {{alt.match}}%"></view>
+            </view>
+            <view class="pct">{{alt.match}}%</view>
+          </view>
+        </view>
+
+        <view class="an-note">{{msg.card.note}}</view>
+
+        <view class="an-btns">
+          <view
+            class="btn primary"
+            data-dept="{{msg.card.primary.dept}}"
+            data-loc="{{msg.card.primary.location}}"
+            bindtap="onViewFlow"
+          >查看就诊步骤</view>
+        </view>
+      </view>
+
+      <!-- 急症卡 -->
+      <view class="emg-card" wx:if="{{msg.card && msg.card.type === 'emergency'}}">
+        <view class="emg-head">
+          <view class="dot">!</view>
+          <text class="emg-title">{{msg.card.title}}</text>
+        </view>
+        <view class="emg-body">
+          <view class="emg-advice">{{msg.card.advice}}</view>
+        </view>
+        <view class="emg-loc">急诊位置：{{msg.card.location}}</view>
+        <view class="emg-route-item" wx:for="{{msg.card.route}}" wx:for-item="line" wx:key="*this">
+          · {{line}}
+        </view>
+        <view class="emg-btns">
+          <view class="btn danger" data-phone="{{msg.card.phone}}" bindtap="onCallEmergency">
+            拨打急诊电话 {{msg.card.phone}}
+          </view>
+        </view>
+      </view>
+    </block>
+  </block>
+
+  <!-- 加载态 -->
+  <view class="row" wx:if="{{showTyping}}">
+    <view class="mini-av"><text>医</text></view>
+    <view class="bubble bubble-typing">
+      <view class="typing"><view class="tdot"></view><view class="tdot"></view><view class="tdot"></view></view>
+    </view>
+  </view>
+
+  <view class="list-end"></view>
+</view>
+
+<!-- ================= 底部输入区 ================= -->
+<view class="dock" style="bottom: {{keyboardHeight}}px;">
+  <view class="quick">
+    <view
+      class="quick-btn"
+      wx:for="{{quickActions}}"
+      wx:key="*this"
+      data-action="{{item}}"
+      bindtap="onQuick"
+      hover-class="tap"
+    >{{item}}</view>
+  </view>
+
+  <view class="inputbar">
+    <view class="ibtn {{recording ? 'active' : ''}}" bindtap="onVoice" hover-class="tap">
+      <view class="icon-mic"></view>
+    </view>
+
+    <view class="recording" wx:if="{{recording}}" bindtap="onVoice">
+      <view class="rec-dot"></view>
+      <text>正在录音，点一下结束</text>
+    </view>
+
+    <view class="field" wx:else>
+      <input
+        class="field-input"
+        value="{{inputValue}}"
+        placeholder="描述您的症状，如：头晕、心慌"
+        placeholder-class="field-ph"
+        confirm-type="send"
+        adjust-position="{{false}}"
+        cursor-spacing="24"
+        bindinput="onInput"
+        bindconfirm="onSendTap"
+        bindfocus="onInputFocus"
+      />
+    </view>
+
+    <view class="ibtn" bindtap="onAttach" hover-class="tap">
+      <view class="icon-plus"></view>
+    </view>
+
+    <view class="send {{canSend ? '' : 'disabled'}}" bindtap="onSendTap">发送</view>
+  </view>
+</view>
+
+<!-- ================= 转人工弹窗 ================= -->
+<block wx:if="{{showHandoff}}">
+  <view class="mask" bindtap="closeHandoff" catchtouchmove="noop"></view>
+  <view class="sheet">
+    <view class="grab"></view>
+    <view class="sheet-head">
+      <view>
+        <view class="sheet-title">{{handoff.title}}</view>
+        <view class="sheet-sub">{{hospital}} · 人工导诊台</view>
+      </view>
+      <view class="close" bindtap="closeHandoff"><view class="icon-close"></view></view>
+    </view>
+
+    <scroll-view scroll-y class="sheet-body">
+      <view class="ho-phone">
+        <view class="ico"><view class="icon-phone"></view></view>
+        <view>
+          <view class="num">{{handoff.phone}}</view>
+          <view class="lbl">点击下方按钮可直接拨打</view>
+        </view>
+      </view>
+
+      <view class="ho-rows">
+        <view class="ho-row">
+          <text class="k">人工服务时间</text>
+          <text class="v">{{handoff.hours}}</text>
+        </view>
+        <view class="ho-row">
+          <text class="k">转接原因</text>
+          <text class="v">{{handoff.reasonText}}</text>
+        </view>
+      </view>
+
+      <view class="ho-tip">{{handoff.afterHoursTip}}</view>
+    </scroll-view>
+
+    <view class="sheet-foot">
+      <view class="btn ghost" bindtap="closeHandoff">稍后再说</view>
+      <view class="btn primary" data-phone="{{handoff.phone}}" bindtap="onCallHandoff">
+        拨打 {{handoff.phone}}
+      </view>
+    </view>
+  </view>
+</block>
+
+<!-- ================= 附件面板 ================= -->
+<block wx:if="{{showAttach}}">
+  <view class="mask" bindtap="closeAttach" catchtouchmove="noop"></view>
+  <view class="sheet">
+    <view class="grab"></view>
+    <view class="sheet-head">
+      <view>
+        <view class="sheet-title">上传资料</view>
+        <view class="sheet-sub">支持病历、药单、检查单，单个文件不超过 {{maxUploadMb}}MB</view>
+      </view>
+      <view class="close" bindtap="closeAttach"><view class="icon-close"></view></view>
+    </view>
+
+    <scroll-view scroll-y class="sheet-body">
+      <view class="attach-grid">
+        <view class="attach-item" bindtap="chooseImage" hover-class="tap">
+          <view class="attach-ico"><view class="icon-camera"></view></view>
+          <text class="attach-name">拍照 / 相册</text>
+          <text class="attach-sub">病历本、药盒、检查单</text>
+        </view>
+        <view class="attach-item" bindtap="chooseDoc" hover-class="tap">
+          <view class="attach-ico"><view class="icon-doc"></view></view>
+          <text class="attach-name">上传文档</text>
+          <text class="attach-sub">PDF / Word 检查报告</text>
+        </view>
+        <view class="attach-item" bindtap="closeAttach" hover-class="tap">
+          <view class="attach-ico"><view class="icon-back"></view></view>
+          <text class="attach-name">暂不上传</text>
+          <text class="attach-sub">直接用文字描述</text>
+        </view>
+      </view>
+
+      <view class="attach-note">
+        文件仅用于本次导诊识别，不会外发到第三方。V1 不支持视频与旧版 .doc 格式。
+      </view>
+    </scroll-view>
+
+    <view class="sheet-foot">
+      <view class="btn ghost" style="flex: 1" bindtap="closeAttach">取消</view>
+    </view>
+  </view>
+</block>
+
+<!-- ================= Toast ================= -->
+<view class="toast" wx:if="{{toastText}}">{{toastText}}</view>

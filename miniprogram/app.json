@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/chat/index",
+    "pages/flow/index"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundColor": "#F4F7F7",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": false
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.record": {
+      "desc": "用于语音描述症状，帮助不会打字的患者"
+    }
+  },
+  "lazyCodeLoading": "requiredComponents"
+}

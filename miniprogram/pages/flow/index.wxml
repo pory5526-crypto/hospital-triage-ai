@@ -1,0 +1,87 @@
+<view class="navbar" style="padding-top: {{statusBarHeight}}px;">
+  <view class="navbar-inner">
+    <view class="back" bindtap="onBack" hover-class="tap">
+      <view class="chevron"></view>
+    </view>
+    <view class="nav-title">就诊流程</view>
+  </view>
+</view>
+
+<view class="page-body flow-body" style="padding-top: {{navTotal}}px;">
+  <!-- 科室信息卡 -->
+  <view class="detail-hero">
+    <view class="dh-row">
+      <view class="dh-left">
+        <view class="dh-dept">{{dept}}</view>
+        <view class="dh-type">
+          <text class="dh-tag">普通门诊</text>
+          <text class="dh-doc">张明 · 副主任医师</text>
+        </view>
+      </view>
+      <view class="dh-no">
+        <text class="dh-no-k">今日余号</text>
+        <text class="dh-no-v">12</text>
+      </view>
+    </view>
+    <view class="dh-meta">
+      <view class="dh-meta-item">
+        <text class="k">预计等候</text>
+        <text class="v">25 分钟</text>
+      </view>
+      <view class="dh-meta-item">
+        <text class="k">就诊地点</text>
+        <text class="v">{{location}}</text>
+      </view>
+      <view class="dh-meta-item">
+        <text class="k">挂号费</text>
+        <text class="v">¥15</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="sec-title">
+    <text class="sec-t">到院就诊的 7 个步骤</text>
+    <view class="sec-line"></view>
+    <text class="sec-s">共约 45 分钟</text>
+  </view>
+
+  <!-- 7 步时间线 -->
+  <view class="timeline">
+    <view class="step {{item.state}}" wx:for="{{steps}}" wx:key="title">
+      <view class="bullet">
+        <text wx:if="{{item.state === 'done'}}" class="check">✓</text>
+        <text wx:else>{{index + 1}}</text>
+      </view>
+      <view class="step-head">
+        <text class="step-title">{{item.title}}</text>
+        <text class="step-pill" wx:if="{{item.state === 'done'}}">已完成</text>
+        <text class="step-pill now-pill" wx:if="{{item.state === 'now'}}">进行中</text>
+      </view>
+      <view class="step-desc">{{item.desc}}</view>
+      <view class="step-where" wx:if="{{item.where}}">
+        <view class="pin"></view>
+        <text>{{item.where}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 到院前请准备 -->
+  <view class="tipcard">
+    <view class="tip-head">
+      <view class="tip-i">!</view>
+      <text>到院前请准备</text>
+    </view>
+    <view class="tip-item" wx:for="{{tips}}" wx:key="*this">· {{item}}</view>
+  </view>
+</view>
+
+<!-- 底部挂号栏（V1 置灰） -->
+<view class="detail-cta">
+  <view class="cta-row">
+    <view class="price">
+      <text class="price-k">挂号费</text>
+      <text class="price-v">¥15</text>
+    </view>
+    <view class="btn primary disabled" bindtap="onAppointment">立即预约挂号</view>
+  </view>
+</view>

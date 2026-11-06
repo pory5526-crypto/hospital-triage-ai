@@ -1,0 +1,669 @@
+{
+  "doctors": [
+    {
+      "name": "张明",
+      "title": "副主任医师",
+      "dept": "心血管内科",
+      "specialty": "冠心病、心律失常、高血压",
+      "schedule": [
+        {
+          "weekday": 1,
+          "period": "上午",
+          "room": "门诊楼 3F · A 区 301 诊室"
+        },
+        {
+          "weekday": 3,
+          "period": "下午",
+          "room": "门诊楼 3F · A 区 301 诊室"
+        },
+        {
+          "weekday": 5,
+          "period": "上午",
+          "room": "门诊楼 3F · A 区 301 诊室"
+        }
+      ],
+      "fee": 30,
+      "rating": 4.8
+    },
+    {
+      "name": "李静",
+      "title": "主任医师",
+      "dept": "心血管内科",
+      "specialty": "心力衰竭、心肌病、冠脉介入",
+      "schedule": [
+        {
+          "weekday": 2,
+          "period": "上午",
+          "room": "门诊楼 3F · A 区 302 诊室"
+        },
+        {
+          "weekday": 4,
+          "period": "上午",
+          "room": "门诊楼 3F · A 区 302 诊室"
+        },
+        {
+          "weekday": 6,
+          "period": "上午",
+          "room": "门诊楼 3F · A 区 302 诊室"
+        }
+      ],
+      "fee": 50,
+      "rating": 4.9
+    },
+    {
+      "name": "王建国",
+      "title": "主任医师",
+      "dept": "神经内科",
+      "specialty": "脑卒中、帕金森病、头痛",
+      "schedule": [
+        {
+          "weekday": 1,
+          "period": "上午",
+          "room": "门诊楼 3F · A 区 303 诊室"
+        },
+        {
+          "weekday": 4,
+          "period": "下午",
+          "room": "门诊楼 3F · A 区 303 诊室"
+        }
+      ],
+      "fee": 50,
+      "rating": 4.7
+    },
+    {
+      "name": "赵慧",
+      "title": "主治医师",
+      "dept": "呼吸内科",
+      "specialty": "慢阻肺、哮喘、肺部感染",
+      "schedule": [
+        {
+          "weekday": 2,
+          "period": "上午",
+          "room": "门诊楼 3F · B 区 311 诊室"
+        },
+        {
+          "weekday": 5,
+          "period": "下午",
+          "room": "门诊楼 3F · B 区 311 诊室"
+        },
+        {
+          "weekday": 6,
+          "period": "上午",
+          "room": "门诊楼 3F · B 区 311 诊室"
+        }
+      ],
+      "fee": 15,
+      "rating": 4.6
+    },
+    {
+      "name": "陈志强",
+      "title": "副主任医师",
+      "dept": "消化内科",
+      "specialty": "胃食管反流、消化性溃疡、肠易激综合征",
+      "schedule": [
+        {
+          "weekday": 1,
+          "period": "下午",
+          "room": "门诊楼 3F · B 区 312 诊室"
+        },
+        {
+          "weekday": 6,
+          "period": "上午",
+          "room": "门诊楼 3F · B 区 312 诊室"
+        }
+      ],
+      "fee": 30,
+      "rating": 4.8
+    },
+    {
+      "name": "刘芳",
+      "title": "主任医师",
+      "dept": "内分泌科",
+      "specialty": "糖尿病、甲状腺疾病、骨质疏松",
+      "schedule": [
+        {
+          "weekday": 2,
+          "period": "下午",
+          "room": "门诊楼 3F · C 区 321 诊室"
+        },
+        {
+          "weekday": 4,
+          "period": "上午",
+          "room": "门诊楼 3F · C 区 321 诊室"
+        },
+        {
+          "weekday": 6,
+          "period": "上午",
+          "room": "门诊楼 3F · C 区 321 诊室"
+        }
+      ],
+      "fee": 50,
+      "rating": 4.9
+    },
+    {
+      "name": "周伟",
+      "title": "副主任医师",
+      "dept": "肾内科",
+      "specialty": "慢性肾病、糖尿病肾病、透析管理",
+      "schedule": [
+        {
+          "weekday": 1,
+          "period": "上午",
+          "room": "门诊楼 3F · C 区 322 诊室"
+        },
+        {
+          "weekday": 4,
+          "period": "下午",
+          "room": "门诊楼 3F · C 区 322 诊室"
+        }
+      ],
+      "fee": 30,
+      "rating": 4.7
+    },
+    {
+      "name": "吴敏",
+      "title": "主治医师",
+      "dept": "血液内科",
+      "specialty": "贫血、血小板减少、淋巴瘤",
+      "schedule": [
+        {
+          "weekday": 2,
+          "period": "上午",
+          "room": "门诊楼 3F · C 区 323 诊室"
+        },
+        {
+          "weekday": 5,
+          "period": "上午",
+          "room": "门诊楼 3F · C 区 323 诊室"
+        }
+      ],
+      "fee": 15,
+      "rating": 4.6
+    },
+    {
+      "name": "郑海燕",
+      "title": "副主任医师",
+      "dept": "风湿免疫科",
+      "specialty": "类风湿关节炎、系统性红斑狼疮、痛风",
+      "schedule": [
+        {
+          "weekday": 3,
+          "period": "上午",
+          "room": "门诊楼 3F · C 区 324 诊室"
+        },
+        {
+          "weekday": 5,
+          "period": "下午",
+          "room": "门诊楼 3F · C 区 324 诊室"
+        }
+      ],
+      "fee": 30,
+      "rating": 4.8
+    },
+    {
+      "name": "孙鹏",
+      "title": "副主任医师",
+      "dept": "普通外科",
+      "specialty": "胆囊结石、疝气、甲状腺结节",
+      "schedule": [
+        {
+          "weekday": 1,
+          "period": "上午",
+          "room": "门诊楼 4F · A 区 401 诊室"
+        },
+        {
+          "weekday": 4,
+          "period": "上午",
+          "room": "门诊楼 4F · A 区 401 诊室"
+        }
+      ],
+      "fee": 30,
+      "rating": 4.7
+    },
+    {
+      "name": "马超",
+      "title": "主任医师",
+      "dept": "骨科",
+      "specialty": "关节置换、腰椎间盘突出、运动损伤",
+      "schedule": [
+        {
+          "weekday": 2,
+          "period": "上午",
+          "room": "门诊楼 4F · B 区 411 诊室"
+        },
+        {
+          "weekday": 4,
+          "period": "下午",
+          "room": "门诊楼 4F · B 区 411 诊室"
+        },
+        {
+          "weekday": 6,
+          "period": "上午",
+          "room": "门诊楼 4F · B 区 411 诊室"
+        }
+      ],
+      "fee": 50,
+      "rating": 4.9
+    },
+    {
+      "name": "高翔",
+      "title": "知名专家",
+      "dept": "骨科",
+      "specialty": "复杂骨折、脊柱畸形、骨肿瘤",
+      "schedule": [
+        {
+          "weekday": 1,
+          "period": "下午",
+          "room": "门诊楼 4F · B 区 412 诊室"
+        },
+        {
+          "weekday": 3,
+          "period": "上午",
+          "room": "门诊楼 4F · B 区 412 诊室"
+        }
+      ],
+      "fee": 100,
+      "rating": 5.0
+    },
+    {
+      "name": "林涛",
+      "title": "副主任医师",
+      "dept": "泌尿外科",
+      "specialty": "泌尿系结石、前列腺增生、膀胱肿瘤",
+      "schedule": [
+        {
+          "weekday": 2,
+          "period": "下午",
+          "room": "门诊楼 4F · C 区 421 诊室"
+        },
+        {
+          "weekday": 5,
+          "period": "上午",
+          "room": "门诊楼 4F · C 区 421 诊室"
+        }
+      ],
+      "fee": 30,
+      "rating": 4.8
+    },
+    {
+      "name": "何军",
+      "title": "主任医师",
+      "dept": "神经外科",
+      "specialty": "颅内肿瘤、脑血管病、三叉神经痛",
+      "schedule": [
+        {
+          "weekday": 1,
+          "period": "上午",
+          "room": "门诊楼 4F · A 区 403 诊室"
+        },
+        {
+          "weekday": 3,
+          "period": "下午",
+          "room": "门诊楼 4F · A 区 403 诊室"
+        }
+      ],
+      "fee": 50,
+      "rating": 4.7
+    },
+    {
+      "name": "徐峰",
+      "title": "副主任医师",
+      "dept": "胸外科",
+      "specialty": "肺结节、食管肿瘤、气胸",
+      "schedule": [
+        {
+          "weekday": 2,
+          "period": "上午",
+          "room": "门诊楼 4F · B 区 414 诊室"
+        },
+        {
+          "weekday": 4,
+          "period": "下午",
+          "room": "门诊楼 4F · B 区 414 诊室"
+        }
+      ],
+      "fee": 30,
+      "rating": 4.7
+    },
+    {
+      "name": "黄丽",
+      "title": "主任医师",
+      "dept": "妇产科",
+      "specialty": "宫颈病变、子宫肌瘤、高危妊娠",
+      "schedule": [
+        {
+          "weekday": 1,
+          "period": "上午",
+          "room": "门诊楼 2F · A 区 201 诊室"
+        },
+        {
+          "weekday": 3,
+          "period": "上午",
+          "room": "门诊楼 2F · A 区 201 诊室"
+        },
+        {
+          "weekday": 5,
+          "period": "下午",
+          "room": "门诊楼 2F · A 区 201 诊室"
+        }
+      ],
+      "fee": 50,
+      "rating": 4.9
+    },
+    {
+      "name": "杨雪",
+      "title": "主治医师",
+      "dept": "妇产科",
+      "specialty": "月经失调、妇科炎症、孕期保健",
+      "schedule": [
+        {
+          "weekday": 2,
+          "period": "下午",
+          "room": "门诊楼 2F · A 区 202 诊室"
+        },
+        {
+          "weekday": 4,
+          "period": "上午",
+          "room": "门诊楼 2F · A 区 202 诊室"
+        },
+        {
+          "weekday": 6,
+          "period": "上午",
+          "room": "门诊楼 2F · A 区 202 诊室"
+        }
+      ],
+      "fee": 15,
+      "rating": 4.7
+    },
+    {
+      "name": "朱琳",
+      "title": "副主任医师",
+      "dept": "儿科",
+      "specialty": "儿童呼吸道感染、哮喘、生长发育",
+      "schedule": [
+        {
+          "weekday": 1,
+          "period": "上午",
+          "room": "门诊楼 2F · B 区 211 诊室"
+        },
+        {
+          "weekday": 3,
+          "period": "上午",
+          "room": "门诊楼 2F · B 区 211 诊室"
+        },
+        {
+          "weekday": 5,
+          "period": "上午",
+          "room": "门诊楼 2F · B 区 211 诊室"
+        }
+      ],
+      "fee": 30,
+      "rating": 4.9
+    },
+    {
+      "name": "胡磊",
+      "title": "主治医师",
+      "dept": "儿科",
+      "specialty": "小儿腹泻、过敏性疾病、新生儿黄疸",
+      "schedule": [
+        {
+          "weekday": 2,
+          "period": "下午",
+          "room": "门诊楼 2F · B 区 212 诊室"
+        },
+        {
+          "weekday": 4,
+          "period": "下午",
+          "room": "门诊楼 2F · B 区 212 诊室"
+        },
+        {
+          "weekday": 6,
+          "period": "上午",
+          "room": "门诊楼 2F · B 区 212 诊室"
+        }
+      ],
+      "fee": 15,
+      "rating": 4.7
+    },
+    {
+      "name": "郭敏",
+      "title": "副主任医师",
+      "dept": "眼科",
+      "specialty": "白内障、青光眼、干眼症",
+      "schedule": [
+        {
+          "weekday": 2,
+          "period": "上午",
+          "room": "门诊楼 2F · C 区 221 诊室"
+        },
+        {
+          "weekday": 6,
+          "period": "上午",
+          "room": "门诊楼 2F · C 区 221 诊室"
+        }
+      ],
+      "fee": 30,
+      "rating": 4.8
+    },
+    {
+      "name": "罗静",
+      "title": "主任医师",
+      "dept": "耳鼻喉科",
+      "specialty": "鼻窦炎、中耳炎、耳鸣眩晕",
+      "schedule": [
+        {
+          "weekday": 1,
+          "period": "下午",
+          "room": "门诊楼 2F · C 区 222 诊室"
+        },
+        {
+          "weekday": 3,
+          "period": "上午",
+          "room": "门诊楼 2F · C 区 222 诊室"
+        },
+        {
+          "weekday": 6,
+          "period": "上午",
+          "room": "门诊楼 2F · C 区 222 诊室"
+        }
+      ],
+      "fee": 50,
+      "rating": 4.8
+    },
+    {
+      "name": "梁宇",
+      "title": "主治医师",
+      "dept": "口腔科",
+      "specialty": "龋齿、牙周炎、拔牙修复",
+      "schedule": [
+        {
+          "weekday": 2,
+          "period": "上午",
+          "room": "门诊楼 2F · D 区 231 诊室"
+        },
+        {
+          "weekday": 6,
+          "period": "上午",
+          "room": "门诊楼 2F · D 区 231 诊室"
+        }
+      ],
+      "fee": 15,
+      "rating": 4.6
+    },
+    {
+      "name": "宋佳",
+      "title": "副主任医师",
+      "dept": "皮肤科",
+      "specialty": "湿疹、银屑病、痤疮",
+      "schedule": [
+        {
+          "weekday": 1,
+          "period": "上午",
+          "room": "门诊楼 4F · D 区 431 诊室"
+        },
+        {
+          "weekday": 3,
+          "period": "下午",
+          "room": "门诊楼 4F · D 区 431 诊室"
+        },
+        {
+          "weekday": 6,
+          "period": "上午",
+          "room": "门诊楼 4F · D 区 431 诊室"
+        }
+      ],
+      "fee": 30,
+      "rating": 4.8
+    },
+    {
+      "name": "唐文",
+      "title": "主任医师",
+      "dept": "中医科",
+      "specialty": "脾胃病、失眠、中医调理",
+      "schedule": [
+        {
+          "weekday": 2,
+          "period": "上午",
+          "room": "门诊楼 5F · A 区 501 诊室"
+        },
+        {
+          "weekday": 4,
+          "period": "上午",
+          "room": "门诊楼 5F · A 区 501 诊室"
+        },
+        {
+          "weekday": 6,
+          "period": "上午",
+          "room": "门诊楼 5F · A 区 501 诊室"
+        }
+      ],
+      "fee": 50,
+      "rating": 4.9
+    },
+    {
+      "name": "韩雪梅",
+      "title": "副主任医师",
+      "dept": "康复医学科",
+      "specialty": "脑卒中康复、颈肩腰腿痛、运动损伤",
+      "schedule": [
+        {
+          "weekday": 1,
+          "period": "下午",
+          "room": "门诊楼 5F · B 区 511 诊室"
+        },
+        {
+          "weekday": 3,
+          "period": "上午",
+          "room": "门诊楼 5F · B 区 511 诊室"
+        }
+      ],
+      "fee": 30,
+      "rating": 4.7
+    },
+    {
+      "name": "冯刚",
+      "title": "副主任医师",
+      "dept": "疼痛科",
+      "specialty": "带状疱疹后神经痛、颈源性头痛、慢性腰背痛",
+      "schedule": [
+        {
+          "weekday": 2,
+          "period": "上午",
+          "room": "门诊楼 5F · C 区 512 诊室"
+        },
+        {
+          "weekday": 5,
+          "period": "下午",
+          "room": "门诊楼 5F · C 区 512 诊室"
+        }
+      ],
+      "fee": 30,
+      "rating": 4.8
+    },
+    {
+      "name": "曹颖",
+      "title": "副主任医师",
+      "dept": "精神心理科",
+      "specialty": "焦虑障碍、抑郁障碍、睡眠障碍",
+      "schedule": [
+        {
+          "weekday": 1,
+          "period": "上午",
+          "room": "门诊楼 3F · D 区 331 诊室"
+        },
+        {
+          "weekday": 4,
+          "period": "下午",
+          "room": "门诊楼 3F · D 区 331 诊室"
+        }
+      ],
+      "fee": 30,
+      "rating": 4.9
+    },
+    {
+      "name": "邓强",
+      "title": "主任医师",
+      "dept": "感染科",
+      "specialty": "病毒性肝炎、发热待查、中枢神经系统感染",
+      "schedule": [
+        {
+          "weekday": 2,
+          "period": "下午",
+          "room": "门诊楼 1F · 西侧发热门诊 103 诊室"
+        },
+        {
+          "weekday": 5,
+          "period": "上午",
+          "room": "门诊楼 1F · 西侧发热门诊 103 诊室"
+        }
+      ],
+      "fee": 50,
+      "rating": 4.7
+    },
+    {
+      "name": "谢军",
+      "title": "副主任医师",
+      "dept": "急诊科",
+      "specialty": "急危重症、急性中毒、创伤急救",
+      "schedule": [
+        {
+          "weekday": 1,
+          "period": "上午",
+          "room": "急诊楼 1F · 急诊内科 101 诊室"
+        },
+        {
+          "weekday": 4,
+          "period": "下午",
+          "room": "急诊楼 1F · 急诊内科 101 诊室"
+        }
+      ],
+      "fee": 30,
+      "rating": 4.8
+    },
+    {
+      "name": "沈莉",
+      "title": "主治医师",
+      "dept": "全科医学科",
+      "specialty": "常见病多发病、慢病管理、健康体检",
+      "schedule": [
+        {
+          "weekday": 1,
+          "period": "上午",
+          "room": "门诊楼 1F · A 区 111 诊室"
+        },
+        {
+          "weekday": 3,
+          "period": "下午",
+          "room": "门诊楼 1F · A 区 111 诊室"
+        },
+        {
+          "weekday": 6,
+          "period": "上午",
+          "room": "门诊楼 1F · A 区 111 诊室"
+        }
+      ],
+      "fee": 15,
+      "rating": 4.7
+    }
+  ]
+}
